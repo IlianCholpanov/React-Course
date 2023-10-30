@@ -144,7 +144,7 @@ function getBook(id) {
 }
 
 //< ! > Destructuring < ! >//
-const book = getBook(1);
+const book = getBook(2);
 
 // Without Destructuring
 // const title = book.title;
@@ -178,9 +178,14 @@ const updatedBook = {
 
 updatedBook;
 
-// < ! > Template Literals
+// < ! > Template Literals < ! >
 const summary = `${title}, a ${pages}-page long book, was written by ${author} and published in ${
   publicationDate.split("-")[0]
-}.`;
+}. The book ${hasMovieAdaptation ? "" : "not"} has been adapted as a movie.`;
 
 summary;
+
+// < ! > Ternaries Operator < ! >
+const pagesRange = pages > 1000 ? "over a thousand" : "less than 1000";
+pagesRange;
+console.log(`The book has ${pagesRange} pages`);
