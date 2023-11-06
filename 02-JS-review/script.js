@@ -256,3 +256,11 @@ adventureBooks;
 
 const pages = books.reduce((sum, book) => sum + book.pages, 0);
 pages;
+
+const arr = [3, 1, 6, 9, 4];
+const sorted = arr.slice().sort((a, b) => a - b);
+sorted;
+arr;
+
+const sortedByPages = books.slice().sort((a, b) => b.pages - a.pages);
+sortedByPages;
