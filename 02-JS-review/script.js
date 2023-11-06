@@ -144,7 +144,7 @@ function getBook(id) {
 }
 
 //< ! > Destructuring < ! >//
-const book = getBook(2);
+const book = getBook(3);
 
 // Without Destructuring
 // const title = book.title;
@@ -190,24 +190,33 @@ const summary = `${title}, a ${pages}-page long book, was written by ${author} a
 summary;
 
 // < ! > Ternaries Operator < ! >
-const pagesRange = pages > 1000 ? "over a thousand" : "less than 1000";
-pagesRange;
-console.log(`The book has ${pagesRange} pages`);
+// const pagesRange = pages > 1000 ? "over a thousand" : "less than 1000";
+// pagesRange;
+// console.log(`The book has ${pagesRange} pages`);
 
-console.log(true && "Some String");
-console.log(false && "Some string");
-console.log(hasMovieAdaptation && "The book has a movie");
+// console.log(true && "Some String");
+// console.log(false && "Some string");
+// console.log(hasMovieAdaptation && "The book has a movie");
 
-console.log(true || "Some string");
-console.log(false || "Some string");
+// console.log(true || "Some string");
+// console.log(false || "Some string");
 
-console.log(book.translations.spanish);
-const spanishTranslation = book.translations.spanish || "NOT TRANSLATED";
-spanishTranslation;
+// console.log(book.translations.spanish);
+// const spanishTranslation = book.translations.spanish || "NOT TRANSLATED";
+// spanishTranslation;
 
-console.log(book.reviews.librarything.reviewsCount);
-const countWrong = book.reviews.librarything.reviewsCount || "no data";
-countWrong;
+// console.log(book.reviews.librarything.reviewsCount);
+// const countWrong = book.reviews.librarything.reviewsCount || "no data";
+// countWrong;
 
-const count = book.reviews.librarything.reviewsCount ?? "no data";
-count;
+// const count = book.reviews.librarything.reviewsCount ?? "no data";
+// count;
+
+function getTotalReviewCount(book) {
+  const goodreads = book.reviews?.goodreads?.reviewsCount;
+  const librarything = book.reviews?.librarything?.reviewsCount ?? 0;
+  librarything;
+  return goodreads + librarything;
+}
+
+console.log(getTotalReviewCount(book));
