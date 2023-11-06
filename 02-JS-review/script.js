@@ -179,9 +179,13 @@ const updatedBook = {
 updatedBook;
 
 // < ! > Template Literals < ! >
-const summary = `${title}, a ${pages}-page long book, was written by ${author} and published in ${
-  publicationDate.split("-")[0]
-}. The book ${hasMovieAdaptation ? "" : "not"} has been adapted as a movie.`;
+
+const getYear = (str) => str.split("-")[0];
+console.log(getYear(publicationDate));
+
+const summary = `${title}, a ${pages}-page long book, was written by ${author} and published in ${getYear(
+  publicationDate
+)}. The book ${hasMovieAdaptation ? "" : "not"} has been adapted as a movie.`;
 
 summary;
 
@@ -189,3 +193,21 @@ summary;
 const pagesRange = pages > 1000 ? "over a thousand" : "less than 1000";
 pagesRange;
 console.log(`The book has ${pagesRange} pages`);
+
+console.log(true && "Some String");
+console.log(false && "Some string");
+console.log(hasMovieAdaptation && "The book has a movie");
+
+console.log(true || "Some string");
+console.log(false || "Some string");
+
+console.log(book.translations.spanish);
+const spanishTranslation = book.translations.spanish || "NOT TRANSLATED";
+spanishTranslation;
+
+console.log(book.reviews.librarything.reviewsCount);
+const countWrong = book.reviews.librarything.reviewsCount || "no data";
+countWrong;
+
+const count = book.reviews.librarything.reviewsCount ?? "no data";
+count;
